@@ -1,8 +1,8 @@
 # Lottery-Application
 
-React based application which uses Ethereum on the backend to create a Lottery system where users can sign up and pool in certain amount and one winner gets selected randomly.
+React based application which uses Ethereum (Rinkeby Testnet) on the backend to create a Lottery system where users can sign up and pool in certain amount of test ethers and one winner gets selected randomly by the manager.
 
-
+Contract deployed here: [Rinkeby Testnet](https://rinkeby.etherscan.io/address/0xD01D7296b29d31C300865469f356C634b9aDAFD5)
 
 # Getting Started with Create React App
 

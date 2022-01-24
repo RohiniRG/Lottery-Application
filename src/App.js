@@ -1,8 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 import web3 from './web3';
 import { Component } from 'react';
 import lottery from './lottery';
+import Container from '@mui/material/Container';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import { grey, purple } from '@mui/material/colors';
+import { Typography } from '@mui/material';
 
 class App extends Component {
   state = {
@@ -49,34 +55,48 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h2>
-          Lottery contract
-        </h2>
-        <p>
-          This contract is managed by {this.state.manager}.
-          There are currently {this.state.players.length} people already competing for {web3.utils.fromWei(this.state.balance, 'ether')} ethers!!
-        </p>
-        <hr />
-        <form onSubmit={this.onSubmit}>
-          <h2>Want to try your luck??</h2>
-          <div>
-            <label>
-              Amount of ether to enter:
-            </label>
-            <input
-              value={this.state.value}
-              onChange={event => this.setState({ value: event.target.value })}
-            />
-          </div>
-          <button>Enter!</button>
-        </form>
-        <hr />
-        <h2>Wanna pick a winner?</h2>
-        <button onClick={this.onClick}>Pick a winner!</button>
-        <hr />
-        <h2>{this.state.message}</h2>
-      </div>
+      <Container component="main" maxWidth="md">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 5,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 4, bgcolor: 'purple', }}>
+            <MonetizationOnIcon />
+          </Avatar>
+          <Typography variant="h2">
+            De-Lottery
+          </Typography>
+            <p>
+              This contract is managed by {this.state.manager}.
+              There are currently {this.state.players.length} people already competing for {web3.utils.fromWei(this.state.balance, 'ether')} ethers!!
+            </p>
+            <hr />
+            <form onSubmit={this.onSubmit}>
+              <h2>Want to try your luck??</h2>
+              <div>
+                <label>
+                  Amount of ether to enter:
+                </label>
+                <input
+                  value={this.state.value}
+                  onChange={event => this.setState({ value: event.target.value })}
+                />
+              </div>
+              <button>Enter!</button>
+            </form>
+            <hr />
+            <h2>Wanna pick a winner?</h2>
+            <button onClick={this.onClick}>Pick a winner!</button>
+            <hr />
+            <h2>{this.state.message}</h2>
+        </Box>
+      </Container>
+
     );
   }
 }
