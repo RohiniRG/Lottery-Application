@@ -1,6 +1,8 @@
 # Lottery-Application
 
-React based application which uses Ethereum on the backend to create a Lottery system where users can sign up and pool in certain amount and one winner gets selected randomly by the Lottery Manager
+React based application which uses Ethereum on the backend to create a Lottery system where users can sign up and pool in certain amount and one winner gets selected randomly.
+
+
 
 # Getting Started with Create React App
 
