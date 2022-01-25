@@ -5,9 +5,7 @@ import lottery from './lottery';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import { grey, purple } from '@mui/material/colors';
+import CustomAppBar from './components/customAppBar';
 import { Typography } from '@mui/material';
 
 class App extends Component {
@@ -59,18 +57,11 @@ class App extends Component {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 5,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 4, bgcolor: 'purple', }}>
-            <MonetizationOnIcon />
-          </Avatar>
-          <Typography variant="h2">
-            De-Lottery
-          </Typography>
+          <CustomAppBar />
             <p>
               This contract is managed by {this.state.manager}.
               There are currently {this.state.players.length} people already competing for {web3.utils.fromWei(this.state.balance, 'ether')} ethers!!
@@ -96,7 +87,6 @@ class App extends Component {
             <h2>{this.state.message}</h2>
         </Box>
       </Container>
-
     );
   }
 }
