@@ -6,7 +6,8 @@ import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import CustomAppBar from './components/customAppBar';
-import { Typography } from '@mui/material';
+import Card from '@mui/material/Card';
+import CustomCardHeader from './components/cardHeader';
 
 class App extends Component {
   state = {
@@ -53,7 +54,7 @@ class App extends Component {
 
   render() {
     return (
-      <Container component="main" maxWidth="md">
+      <Container component="main" maxWidth="md" >
         <CssBaseline />
         <Box
           sx={{
@@ -62,6 +63,8 @@ class App extends Component {
           }}
         >
           <CustomAppBar />
+          <Card>
+            <CustomCardHeader />
             <p>
               This contract is managed by {this.state.manager}.
               There are currently {this.state.players.length} people already competing for {web3.utils.fromWei(this.state.balance, 'ether')} ethers!!
@@ -85,6 +88,7 @@ class App extends Component {
             <button onClick={this.onClick}>Pick a winner!</button>
             <hr />
             <h2>{this.state.message}</h2>
+          </Card>
         </Box>
       </Container>
     );
