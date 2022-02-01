@@ -4,7 +4,7 @@ import MonetizationOnSharpIcon from '@mui/icons-material/MonetizationOnSharp';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 const CustomAppBar = () => {
-    return <AppBar position="static" color='transparent' elevation={0}>
+    return <AppBar position="relative" color='transparent' elevation={0}>
         <Toolbar>
             <MonetizationOnSharpIcon fontSize="large" edge="start" sx={{ color: 'orange', mr: 0.5}} />
             <Typography variant="h6" fontWeight={'bold'} sx={{ flexGrow: 1 }}>
