@@ -14,7 +14,7 @@ class CustomCardHeader extends Component {
 
   render() {
     return (
-      <CardHeader
+      <CardHeader style={{ alignItems: 'center' }}
         avatar={
           < Avatar sx={{ color: 'black', bgcolor: 'white', fontSize: 'large' }}>
             <PersonIcon />
@@ -26,14 +26,17 @@ class CustomCardHeader extends Component {
         title={<Typography fontWeight={'bold'}>
           Lottery Manager
         </Typography>}
-        subheader={ <span className="manager-address" style={{display:"flex"}}>
+        subheader={<span className="manager-address" style={{
+          display: "flex", alignItems: 'center',
+          flexWrap: 'wrap',
+        }} >
           <Typography fontSize={'small'}>
             {this.accountShortner(this.props.manager)}
           </Typography>
           <IconButton>
-            <ContentCopyIcon fontSize='16' />
+            <ContentCopyIcon style={{ fontSize: 15, padding: 0, }} />
           </IconButton>
-        </span> }
+        </span>}
       />
     );
   }

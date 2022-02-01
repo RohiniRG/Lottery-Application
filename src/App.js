@@ -62,7 +62,6 @@ class App extends Component {
               <CustomCardHeader manager={this.state.manager} />
               <hr color='lightgray' />
               <p>
-                This contract is managed by {this.state.manager}.
                 There are currently {this.state.players.length} people already competing for {web3.utils.fromWei(this.state.balance, 'ether')} ethers!!
               </p>
               <hr />
