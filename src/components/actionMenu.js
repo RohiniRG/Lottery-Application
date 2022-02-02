@@ -18,7 +18,17 @@ class ActionButtonMenu extends Component {
         this.setState({ isOpen: true, menuElement: event.currentTarget });
     };
 
-    handleClose = () => {
+    handleMenuClose = event => {
+        this.setState({ isOpen: false, menuElement: null });
+    };
+
+    handleManagerClose = () => {
+        window.open('https://rinkeby.etherscan.io/address/0x56709884751800A72370F8380671ec816AA4835A')
+        this.setState({ isOpen: false, menuElement: null });
+    };
+
+    handleContractClose = () => {
+        window.open('https://rinkeby.etherscan.io/address/0xD01D7296b29d31C300865469f356C634b9aDAFD5')
         this.setState({ isOpen: false, menuElement: null });
     };
 
@@ -37,18 +47,18 @@ class ActionButtonMenu extends Component {
                 <Menu
                     anchorEl={this.state.menuElement}
                     open={this.state.isOpen}
-                    onClose={this.handleClose}
+                    onClose={this.handleMenuClose}
                     menulistprops={{
                         'aria-labelledby': 'menu-button',
                     }}
                 >
-                    <MenuItem onClick={this.handleClose}>
+                    <MenuItem onClick={this.handleManagerClose}>
                         <ListItemIcon>
                             <AdminPanelSettingsIcon fontSize="small" />
                         </ListItemIcon>
                         <ListItemText>Visit Manager Account</ListItemText>
                     </MenuItem>
-                    <MenuItem onClick={this.handleClose}>
+                    <MenuItem onClick={this.handleContractClose}>
                         <ListItemIcon>
                             <InfoIcon fontSize="small" />
                         </ListItemIcon>

@@ -6,11 +6,24 @@ import ActionButtonMenu from "./actionMenu";
 import { Typography } from "@mui/material";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 
 class CustomCardHeader extends Component {
+  state = {
+    copied: false,
+  }
+
   accountShortner = (address) => {
     return address.substr(0, 4) + "..." + address.substr(address.length - 4);
   };
+
+  copyToClipboard = () => {
+    this.setState({ copied: true })
+    setTimeout(() => {
+      this.setState({ copied: false })
+    }, 1000);
+    return navigator.clipboard.writeText(this.props.manager);
+  }
 
   render() {
     return (
@@ -33,9 +46,11 @@ class CustomCardHeader extends Component {
           <Typography fontSize={'small'}>
             {this.accountShortner(this.props.manager)}
           </Typography>
-          <IconButton>
-            <ContentCopyIcon style={{ fontSize: 15, padding: 0, }} />
-          </IconButton>
+          <Tooltip title={this.state.copied ? "Copied!" : "Copy to Clipboard"} arrow>
+            <IconButton onClick={this.copyToClipboard}>
+              <ContentCopyIcon style={{ fontSize: 15, padding: 0, }} />
+            </IconButton>
+          </Tooltip>
         </span>}
       />
     );
