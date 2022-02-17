@@ -10,6 +10,7 @@ import Card from '@mui/material/Card';
 import CustomCardHeader from './components/cardHeader';
 import EthLogo from './components/ethLogo';
 import MoneyText from './components/moneyText';
+import LotteryForm from './components/lotteryForm';
 
 class App extends Component {
   state = {
@@ -63,24 +64,13 @@ class App extends Component {
           <Card >
             <CustomCardHeader manager={this.state.manager} />
             <hr color='lightgray' />
-            <div style={{padding: "15px"}}>
+            <div style={{ padding: "15px" }}>
               <EthLogo />
               <MoneyText amount={web3.utils.fromWei(this.state.balance, 'ether')} players={this.state.players.length} />
             </div>
-            <hr color='lightgray' />
-            <form onSubmit={this.onSubmit}>
-              <h2>Want to try your luck??</h2>
-              <div>
-                <label>
-                  Amount of ether to enter:
-                </label>
-                <input
-                  value={this.state.value}
-                  onChange={event => this.setState({ value: event.target.value })}
-                />
-              </div>
-              <button>Enter!</button>
-            </form>
+            <div>
+              <LotteryForm />
+            </div>
             <hr />
             <h2>Wanna pick a winner?</h2>
             <button onClick={this.onClick}>Pick a winner!</button>
