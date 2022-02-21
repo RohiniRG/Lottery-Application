@@ -12,7 +12,7 @@ import CustomCardHeader from './components/cardHeader';
 import EthLogo from './components/ethLogo';
 import MoneyText from './components/moneyText';
 import LotteryForm from './components/lotteryForm';
-import { createTheme, ThemeProvider } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core';
 
 class App extends Component {
   state = {
@@ -53,25 +53,12 @@ class App extends Component {
   }
 
   render() {
-    const themeLight = createTheme({
-      palette: {
-        background: {
-          default: "#babfc5",
-        },
-        primary: {
-          main: "#ffffff",
-        },
-        secondary: {
-          main: "#000000"
-        }
-      }
-    });
-
     return (
-      <ThemeProvider theme={themeLight}>
+      <ThemeProvider>
         <CssBaseline />
         <GlobalStyles
           styles={{
+            alignItems: 'center',
             body: { backgroundColor: "#f2f3f4" }
           }}
         />

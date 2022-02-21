@@ -12,6 +12,10 @@ class LotteryForm extends Component {
         value: "",
     }
 
+    handleChange = (event) => {
+        this.setState({ value: event.target.value });
+    }
+
     render() {
         return (
             <form onSubmit={this.props.onSubmit}>
@@ -21,24 +25,31 @@ class LotteryForm extends Component {
                     </Typography>
                 </Box>
                 <Box
-                p={4}
+                    p={4}
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
                         flexDirection: 'column',
                     }}
                 >
-                    <FormControl sx={{ m: 1, width: "250px", enabledColor: "#ffa500", }} variant="outlined">
+                    <FormControl sx={{ m: 1, width: "300px",}} variant="outlined">
                         <OutlinedInput
                             id="outlined-adornment-weight"
-                            value={this.state.value}
                             endAdornment={<InputAdornment position="end">ETH</InputAdornment>}
                             placeholder="Enter amount"
+                            onChange={this.handleChange}
                         />
                     </FormControl>
-                    <Button style={{backgroundColor: "#ffa500", width: "250px",}} variant="contained">Enter!</Button>
+                    <Button style={{
+                        backgroundColor: "#ffa500", 
+                        color: "white",
+                        height: "50px", 
+                        width: "300px", 
+                        fontSize: "20px", 
+                        fontWeight: "bold", 
+                        boxShadow: "0 4px 3px -3px #f2f3f4"
+                    }} variant="contained">Enter!</Button>
                 </Box>
-
             </form>
         );
     }
