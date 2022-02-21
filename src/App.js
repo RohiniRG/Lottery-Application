@@ -4,6 +4,7 @@ import { Component } from 'react';
 import lottery from './lottery';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
+import GlobalStyles from "@mui/material/GlobalStyles";
 import Box from '@mui/material/Box';
 import CustomAppBar from './components/customAppBar';
 import Card from '@mui/material/Card';
@@ -11,6 +12,7 @@ import CustomCardHeader from './components/cardHeader';
 import EthLogo from './components/ethLogo';
 import MoneyText from './components/moneyText';
 import LotteryForm from './components/lotteryForm';
+import { createTheme, ThemeProvider } from '@material-ui/core';
 
 class App extends Component {
   state = {
@@ -51,34 +53,56 @@ class App extends Component {
   }
 
   render() {
+    const themeLight = createTheme({
+      palette: {
+        background: {
+          default: "#babfc5",
+        },
+        primary: {
+          main: "#ffffff",
+        },
+        secondary: {
+          main: "#000000"
+        }
+      }
+    });
+
     return (
-      <Container component="main" maxWidth="md" >
+      <ThemeProvider theme={themeLight}>
         <CssBaseline />
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
+        <GlobalStyles
+          styles={{
+            body: { backgroundColor: "#f2f3f4" }
           }}
-        >
-          <CustomAppBar />
-          <Card >
-            <CustomCardHeader manager={this.state.manager} />
-            <hr color='lightgray' />
-            <div style={{ padding: "15px" }}>
-              <EthLogo />
-              <MoneyText amount={web3.utils.fromWei(this.state.balance, 'ether')} players={this.state.players.length} />
-            </div>
-            <div>
-              <LotteryForm />
-            </div>
-            <hr />
-            <h2>Wanna pick a winner?</h2>
-            <button onClick={this.onClick}>Pick a winner!</button>
-            <hr />
-            <h2>{this.state.message}</h2>
-          </Card>
-        </Box>
-      </Container>
+        />
+        <Container component="main" maxWidth="md" >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              shadow: '0 0 3px -3px #ffa500',
+            }}
+          >
+            <CustomAppBar />
+            <Card >
+              <CustomCardHeader manager={this.state.manager} />
+              <hr color='lightgray' />
+              <div style={{ padding: "15px" }}>
+                <EthLogo />
+                <MoneyText amount={web3.utils.fromWei(this.state.balance, 'ether')} players={this.state.players.length} />
+              </div>
+              <div>
+                <LotteryForm onSubmit={this.onSubmit} />
+              </div>
+              <hr />
+              <h2>Wanna pick a winner?</h2>
+              <button onClick={this.onClick}>Pick a winner!</button>
+              <hr />
+              <h2>{this.state.message}</h2>
+            </Card>
+          </Box>
+        </Container>
+      </ThemeProvider>
     );
   }
 }
