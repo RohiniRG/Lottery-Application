@@ -54,7 +54,7 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider>
+      <div>
         <CssBaseline />
         <GlobalStyles
           styles={{
@@ -89,7 +89,7 @@ class App extends Component {
             </Card>
           </Box>
         </Container>
-      </ThemeProvider>
+      </div>
     );
   }
 }

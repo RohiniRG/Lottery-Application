@@ -40,15 +40,18 @@ class LotteryForm extends Component {
                             onChange={this.handleChange}
                         />
                     </FormControl>
-                    <Button style={{
-                        backgroundColor: "#ffa500", 
-                        color: "white",
-                        height: "50px", 
-                        width: "300px", 
-                        fontSize: "20px", 
-                        fontWeight: "bold", 
-                        boxShadow: "0 4px 3px -3px #f2f3f4"
-                    }} variant="contained">Enter!</Button>
+                    <Button 
+                        onClick={this.props.onSubmit}
+                        style={{
+                            backgroundColor: "#ffa500", 
+                            color: "white",
+                            height: "50px", 
+                            width: "300px", 
+                            fontSize: "20px", 
+                            fontWeight: "bold", 
+                            boxShadow: "0 4px 3px -3px #f2f3f4"
+                        }} variant="contained">Enter!
+                    </Button>
                 </Box>
             </form>
         );
