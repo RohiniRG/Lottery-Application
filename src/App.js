@@ -12,7 +12,6 @@ import CustomCardHeader from './components/cardHeader';
 import EthLogo from './components/ethLogo';
 import MoneyText from './components/moneyText';
 import LotteryForm from './components/lotteryForm';
-import { ThemeProvider } from '@material-ui/core';
 
 class App extends Component {
   state = {
@@ -30,19 +29,7 @@ class App extends Component {
     this.setState({ manager, balance, players })
   }
 
-  onSubmit = async (event) => {
-    event.preventDefault()
-    const accounts = await web3.eth.getAccounts()
-    this.setState({ message: 'Waiting for transaction success....' })
-
-    await lottery.methods.enter().send({
-      from: accounts[0],
-      value: web3.utils.toWei(this.state.value, 'ether')
-    })
-    this.setState({ message: 'Transaction complete! You are now ready to compete!' })
-  }
-
-  onClick = async () => {
+  onClick = async (event) => {
     const accounts = await web3.eth.getAccounts()
     this.setState({ message: 'Waiting for transaction success....' })
 
@@ -79,7 +66,7 @@ class App extends Component {
                 <MoneyText amount={web3.utils.fromWei(this.state.balance, 'ether')} players={this.state.players.length} />
               </div>
               <div>
-                <LotteryForm onSubmit={this.onSubmit} />
+                <LotteryForm onSubmit={this.onSubmit} value={this.state.value}/>
               </div>
               <hr />
               <h2>Wanna pick a winner?</h2>

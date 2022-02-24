@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+
+@media screen and (max-width: 500px) {
+  .app-name {
+    display: none;
+  }
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
