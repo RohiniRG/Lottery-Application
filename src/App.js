@@ -39,6 +39,11 @@ class App extends Component {
     this.setState({ message: 'Transaction complete! Game over! We have a winner!!!' })
   }
 
+  isManager = async () => {
+    const currentAccount = await web3.eth.getAccounts();
+    return currentAccount[0] === this.state.manager;
+  }
+
   render() {
     return (
       <div>
@@ -68,10 +73,12 @@ class App extends Component {
               <div>
                 <LotteryForm onSubmit={this.onSubmit} value={this.state.value}/>
               </div>
-              <hr />
-              <h2>Wanna pick a winner?</h2>
-              <button onClick={this.onClick}>Pick a winner!</button>
-              <hr />
+              {
+                this.isManager ? 
+                <button onClick={this.onClick}>Pick a winner!</button>
+                : null
+              }
+              
               <h2>{this.state.message}</h2>
             </Card>
           </Box>

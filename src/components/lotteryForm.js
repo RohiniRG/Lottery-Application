@@ -11,7 +11,8 @@ import lottery from '../lottery';
 
 class LotteryForm extends Component {
     state = {
-        value: this.props.value
+        value: this.props.value,
+        message: ''
     }
 
     handleChange = (event) => {
@@ -23,8 +24,8 @@ class LotteryForm extends Component {
         const accounts = await web3.eth.getAccounts()
         this.setState({ message: 'Waiting for transaction success....' })
         await lottery.methods.enter().send({
-          from: accounts[0],
-          value: web3.utils.toWei(this.state.value, 'ether')
+            from: accounts[0],
+            value: web3.utils.toWei(this.state.value, 'ether')
         })
         this.setState({ message: 'Transaction complete! You are now ready to compete!' })
     }
@@ -45,23 +46,25 @@ class LotteryForm extends Component {
                         flexDirection: 'column',
                     }}
                 >
-                    <FormControl className="input-bar" sx={{ m: 1, width: "300px",}} variant="outlined">
+                    <FormControl className="input-bar" sx={{ m: 1, width: "300px"}} variant="outlined">
                         <OutlinedInput
+                            className="outlined-input-bar"
                             id="outlined-adornment-weight"
                             endAdornment={<InputAdornment position="end">ETH</InputAdornment>}
                             placeholder="Enter amount"
                             onChange={this.handleChange}
                         />
                     </FormControl>
-                    <Button className="enter-button"
+                    <Button 
+                        className="enter-button"
                         onClick={this.onSubmit}
                         style={{
-                            backgroundColor: "#ffa500", 
+                            backgroundColor: "#ffa500",
                             color: "white",
-                            height: "50px", 
-                            width: "300px", 
-                            fontSize: "20px", 
-                            fontWeight: "bold", 
+                            height: "50px",
+                            width: "300px",
+                            fontSize: "20px",
+                            fontWeight: "bold",
                             boxShadow: "0 4px 3px -3px #f2f3f4"
                         }} variant="contained">Enter!
                     </Button>

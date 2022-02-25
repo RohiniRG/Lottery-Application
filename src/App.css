@@ -3,9 +3,16 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 450px) {
   .app-name {
     display: none;
+  }
+  .outlined-input-bar {
+    width: 200px;
+    margin: auto;
+  }
+  .enter-button {
+    max-width: 200px !important;
   }
 }
 
