@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Lottery-Application/static/css/main.9e72c7ba.css",
-    "main.js": "/Lottery-Application/static/js/main.28c5d935.js",
+    "main.js": "/Lottery-Application/static/js/main.b9cf2548.js",
     "static/js/787.6d5e3777.chunk.js": "/Lottery-Application/static/js/787.6d5e3777.chunk.js",
     "static/media/eth_logo.svg": "/Lottery-Application/static/media/eth_logo.898a3475b4b7a6c720144f90aa735863.svg",
     "index.html": "/Lottery-Application/index.html",
     "main.9e72c7ba.css.map": "/Lottery-Application/static/css/main.9e72c7ba.css.map",
-    "main.28c5d935.js.map": "/Lottery-Application/static/js/main.28c5d935.js.map",
+    "main.b9cf2548.js.map": "/Lottery-Application/static/js/main.b9cf2548.js.map",
     "787.6d5e3777.chunk.js.map": "/Lottery-Application/static/js/787.6d5e3777.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9e72c7ba.css",
-    "static/js/main.28c5d935.js"
+    "static/js/main.b9cf2548.js"
   ]
 }
