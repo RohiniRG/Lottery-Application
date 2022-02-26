@@ -34,7 +34,7 @@ class LotteryForm extends Component {
             this.setState({ message: 'Waiting for transaction success....', severity: "info" })
             this.handleOpen();
 
-            if (parseInt(this.state.value) <= 0.11) {
+            if (parseFloat(this.state.value) <= 0.01) {
                 throw "insufficient entry"
             }
             await lottery.methods.enter().send({
@@ -45,14 +45,13 @@ class LotteryForm extends Component {
             this.handleOpen();
         } catch (e) {
             if (e === "insufficient entry") {
-                this.setState({ message: "Minimum amount required is greater than 0.11ETH", severity: "error" })
+                this.setState({ message: "Minimum amount required must be greater than 0.01ETH", severity: "error" })
             }
             else {
                 this.setState({ message: 'Something went wrong! ', severity: "error" })
             }
             this.handleOpen();
         }
-
     }
 
     handleClose = (event, reason) => {
